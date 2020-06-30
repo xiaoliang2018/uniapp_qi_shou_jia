@@ -1,9 +1,17 @@
 {
   "pages": [
-    "pages/map/map",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/audio/audio",
+    "pages/map/map"
   ],
-  "subPackages": [],
+  "subPackages": [
+    {
+      "root": "pages2",
+      "pages": [
+        "index/index"
+      ]
+    }
+  ],
   "window": {
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "uni-app",
@@ -15,6 +23,5 @@
       "desc": "你的位置信息将用于小程序位置接口的效果展示"
     }
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap93.json"
+  "usingComponents": {}
 }

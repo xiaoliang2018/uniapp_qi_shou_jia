@@ -2,19 +2,23 @@
 
 		<view>
 			
+              <navigator url="/pages2/index/index" open-type="navigate">
+                   <view class="uni-link-item">点我跳转</view>
+              </navigator>
+			
+			
 			<view style="height:500upx;width:100%">
-				<mpvue-echarts class="ec-canvas" @onInit="lineInit1" canvasId="line1" ref="lineChart" />
+				<mpvue-echarts v-if="!showLeft" class="ec-canvas" @onInit="lineInit1" canvasId="line1" ref="lineChart" />
 			</view>
 			
-			<uni-drawer :visible="showLeft" @close="closeDrawer('left')">
-			    <view style="padding:30upx;">
-			        <view class="uni-title">抽屉式导航</view>
-			    </view>
-				<view class="close">
-					<button type="default" @click="hide">关闭Drawer</button>
-				</view>
-			</uni-drawer>
-			
+				<uni-drawer :visible="showLeft" @close="closeDrawer('left')">
+						<view style="padding:30upx;">
+								<view class="uni-title">抽屉式导航</view>
+						</view>
+					<view class="close">
+						<button type="default" @click="hide">关闭Drawer</button>
+					</view>
+				</uni-drawer>
 			
 			<button type="default" @click="show('left')">显示Drawer11</button>
 			
@@ -33,13 +37,15 @@
 			</uni-grid>
 	
 			<button @click="open">打开弹窗</button>
-			<uni-popup ref="popup" type="bottom" style="z-index: 9999;">
-				<scroll-view style="background:#fff;height:100vh">
-					 <map id="navmap" :style="'width: 100%;height:100vh;'">  </map> 
-					
-					<button type="default" @click="close">页面主操作 Normal</button>
-				</scroll-view>
-			</uni-popup>
+				<uni-popup ref="popup" type="bottom" style="z-index: 9999;">
+					<scroll-view style="background:#fff;height:100vh">
+						
+						 <!-- <map id="navmap" :style="'width: 100%;height:100vh;'">  </map> -->
+						<!-- <cover-view>	 -->
+							<button type="default" @click="close">页面主操作 Normal</button>
+						<!-- </cover-view> -->
+					</scroll-view>
+				</uni-popup>
 			
        
 		<!-- 	<uni-drawer :visible="showLeft" mode="left" @close="closeDrawer('left')">
@@ -56,9 +62,12 @@
 		</view>
 </template>
 <script>
-	import echarts from '@/echartsComponents/echarts/echarts.min.js';
-	// import echarts from '@/echartsComponents/echarts/echarts.simple.min.js';
+	// import echarts from '@/echartsComponents/echarts/echarts.min.js';
+	import echarts from '@/echartsComponents/echarts/echarts.min.dingzhi_simple.js';
 	import mpvueEcharts from '@/echartsComponents/mpvue-echarts/src/echarts.vue';
+	
+	
+	// import echarts from '@/echartsComponents/echarts/echarts.simple.min.js';
 	// import uniIcon from '@/components/uni-icon/uni-icon.vue'
 	// import uniDrawer from '@/components/uni-drawer/uni-drawer.vue'
 	// import uniList from '@/components/uni-list/uni-list.vue'
@@ -74,12 +83,18 @@
 		},
 		components: {
 			mpvueEcharts
-			// uniIcon,
-			// uniDrawer,
-			// uniList,
-			// uniListItem
+
 		},
 		onLoad(options) {
+			uni.redirectTo({
+					url: '/pages2/index/index',
+					success: res => {},
+					fail: () => {},
+					complete: () => {}
+			});
+			
+			
+			
 			let _this = this;
 			uni.getLocation({
 				type: 'wgs84',
@@ -87,7 +102,7 @@
 					//116.725922
 					//23.390704
 					// this.mapData = res;
-					_this.mapData = {longitude:res.longitude,latitude:res.latitude}
+					// _this.mapData = {longitude:res.longitude,latitude:res.latitude}
 					console.log('当前位置的经度：' + res.longitude);
 					console.log('当前位置的纬度：' + res.latitude);
 				},
@@ -191,14 +206,14 @@
 			　　　　　　// 转发失败之后的回调
 			　　　　　　if(res.errMsg == 'shareAppMessage:fail cancel'){
 			　　　　　　　　// 用户取消转发
-						console.log('用户取消转发');
+										console.log('用户取消转发');
 			　　　　　　}else if(res.errMsg == 'shareAppMessage:fail'){
 			　　　　　　　　// 转发失败，其中 detail message 为详细失败信息
-						  console.log('转发失败');
+										console.log('转发失败');
 			　　　　　　}
 			　　　　},
-			　　　　complete(){
-						console.log('转发结束之后的回调')
+			　　　complete(){
+							console.log('转发结束之后的回调')
 			// 　　　　　　// （转发成不成功都会执行）
 			　　　　}
 			　　};
@@ -219,11 +234,17 @@
 						axisPointer: {
 							type: 'shadow'
 						},
-						position:["50%","50%"],
+						// position:["50%","50%"],
 						// formatter:function(){
 						// 	return '<view style="color:red">11111</view>'
 						// }
 					},
+					dataZoom:[
+					{
+						start: 30,  //数据窗口范围的起始百分比,表示30%
+						  end: 70
+					}
+					],
 					legend: {
 						data: ['2011年', '2012年']
 					},
@@ -275,10 +296,13 @@
 				lineChart.setOption(this.lineOption(obj));
 				this.$refs.lineChart.setChart(lineChart);
 			},
-		    open(){
-			  // console.log(this.$refs.popup)
-			  this.$refs.popup.open()
-		    },
+			
+			
+			
+			open(){
+			// console.log(this.$refs.popup)
+			this.$refs.popup.open()
+			},
 			close(){
 				this.$refs.popup.close();
 			},

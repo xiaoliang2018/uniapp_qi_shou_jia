@@ -1,0 +1,17 @@
+{
+  "name": "uni-ui-weixin-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo 111",
+		"dev:mp-weixin": "cross-env NODE_ENV=development UNI_PLATFORM=mp-weixin vue-cli-service uni-build --watch --minimize"
+  },
+	
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "compression-webpack-plugin": "^4.0.0",
+    "webpack": "^4.43.0"
+  }
+}
