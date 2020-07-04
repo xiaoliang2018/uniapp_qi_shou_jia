@@ -1,11 +1,5 @@
 <template>
-
 		<view>
-			
-              <navigator url="/pages2/index/index" open-type="navigate">
-                   <view class="uni-link-item">点我跳转</view>
-              </navigator>
-			
 			
 			<view style="height:500upx;width:100%">
 				<mpvue-echarts v-if="!showLeft" class="ec-canvas" @onInit="lineInit1" canvasId="line1" ref="lineChart" />
@@ -86,12 +80,15 @@
 
 		},
 		onLoad(options) {
-			uni.redirectTo({
-					url: '/pages2/index/index',
-					success: res => {},
-					fail: () => {},
-					complete: () => {}
-			});
+			// uni.redirectTo({
+			// 		url: '/pages/map/map',
+			// 		success: res => {},
+			// 		fail: () => {},
+			// 		complete: () => {}
+			// });
+			
+			
+			
 			
 			
 			
@@ -112,13 +109,6 @@
 			});
 			
 			uni.createMapContext("navmap",this);  
-			
-			
-			
-			
-			
-			
-			
 			
 			
 			// #ifdef MP-WEIXIN
@@ -197,9 +187,9 @@
 			　　　　imageUrl: 'https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1906469856,4113625838&fm=26&gp=0.jpg',     //自定义图片路径，可以是本地文件路径、代码包文件路径或者网络图片路径，支持PNG及JPG，不传入 imageUrl 则使用默认截图。显示图片长宽比是 5:4
 			　　　　success(res){
 			　　　　　　// 转发成功之后的回调
-						console.log('转发成功');
+										console.log('转发成功');
 			　　　　　　if(res.errMsg == 'shareAppMessage:ok'){
-							console.log('转发成功');
+										console.log('转发成功');
 			　　　　　　}
 			　　　　},
 			　　　　fail(){
@@ -214,7 +204,8 @@
 			　　　　},
 			　　　complete(){
 							console.log('转发结束之后的回调')
-			// 　　　　　　// （转发成不成功都会执行）
+			// 　　　　
+			　// （转发成不成功都会执行）
 			　　　　}
 			　　};
 			　　// 来自页面内的按钮的转发
@@ -296,12 +287,9 @@
 				lineChart.setOption(this.lineOption(obj));
 				this.$refs.lineChart.setChart(lineChart);
 			},
-			
-			
-			
 			open(){
-			// console.log(this.$refs.popup)
-			this.$refs.popup.open()
+				// console.log(this.$refs.popup)
+				this.$refs.popup.open()
 			},
 			close(){
 				this.$refs.popup.close();
@@ -337,7 +325,7 @@
 	}
 </script>
 
-<style>
+<style lang="less">
 	.scroll{
 		position: absolute;
 		top: 0;

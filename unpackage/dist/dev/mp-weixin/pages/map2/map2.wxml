@@ -1,0 +1,1 @@
+<view class="_div"><button type="default" data-event-opts="{{[['tap',[['openMap']]]]}}" bindtap="__e">地图导航</button></view>

@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/map2/map2",
+    "pages/map/map",
     "pages/index/index",
-    "pages/audio/audio",
-    "pages/map/map"
+    "pages/audio/audio"
   ],
   "subPackages": [
     {
@@ -17,6 +18,30 @@
     "navigationBarTitleText": "uni-app",
     "navigationBarBackgroundColor": "#007AFF",
     "backgroundColor": "#FFFFFF"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/audio/audio",
+        "text": "媒体"
+      },
+      {
+        "pagePath": "pages/map/map",
+        "text": "地图1"
+      },
+      {
+        "pagePath": "pages/map2/map2",
+        "text": "地图2"
+      }
+    ]
   },
   "permission": {
     "scope.userLocation": {

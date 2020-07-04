@@ -1,20 +1,27 @@
 {
-			"pages": [
-			{
-				"path": "pages/index/index",
-				"style": {
-					"navigationBarTitleText": "uni-ui基础项目"
-				}
-			},
-			{
-				"path" : "pages/audio/audio",
-				"style" : {}
-			},
-			{
-				"path" : "pages/map/map",
-				"style" : {}
-			}],
-			"subPackages": [
+	"pages": [
+		{
+			"path" : "pages/map2/map2",
+			"style" : {}
+		},
+		{
+			"path" : "pages/map/map",
+			"style" : {}
+		},
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "uni-ui基础项目"
+			}
+		},
+		{
+			"path" : "pages/audio/audio",
+			"style" : {}
+		}
+
+	
+	],
+	"subPackages": [
 				{
 					"root": "pages2",
 					"pages": [{
@@ -23,15 +30,38 @@
 					}]
 			  }
 			],
-		
-			
-			
 	"globalStyle": {
 		// "navigationStyle":"custom",
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#007AFF",
 		"backgroundColor": "#FFFFFF"
+	},
+	"tabBar": {
+			"color": "#7A7E83",
+			"selectedColor": "#3cc51f",
+			"borderStyle": "black",
+			"backgroundColor": "#ffffff",
+			"list": [{
+					"pagePath": "pages/index/index",
+					// "iconPath": "https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1906469856,4113625838&fm=26&gp=0.jpg",
+					// "selectedIconPath": "https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1906469856,4113625838&fm=26&gp=0.jpg",
+					"text": "首页"
+			}, {
+					"pagePath": "pages/audio/audio",
+					// "iconPath": "https://csdnimg.cn/cdn/content-toolbar/csdn-logo.png?v=20200416.1",
+					// "selectedIconPath": "https://csdnimg.cn/cdn/content-toolbar/csdn-logo.png?v=20200416.1",
+					"text": "媒体"
+			}, {
+					"pagePath": "pages/map/map",
+					// "iconPath": "https://csdnimg.cn/cdn/content-toolbar/csdn-logo.png?v=20200416.1",
+					// "selectedIconPath": "https://csdnimg.cn/cdn/content-toolbar/csdn-logo.png?v=20200416.1",
+					"text": "地图1"
+			}, {
+					"pagePath": "pages/map2/map2",
+					// "iconPath": "https://csdnimg.cn/cdn/content-toolbar/csdn-logo.png?v=20200416.1",
+					// "selectedIconPath": "https://csdnimg.cn/cdn/content-toolbar/csdn-logo.png?v=20200416.1",
+					"text": "地图2"
+			}]
 	}
-
 }
